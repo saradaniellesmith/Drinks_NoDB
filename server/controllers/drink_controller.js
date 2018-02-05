@@ -1,7 +1,8 @@
-const axios = require("axios"); // all the functionality for your server lives in this file // can also make more controller files if needed
+const axios = require("axios"); // all the functionality for your server lives in this file 
 const { apiKey } = require('./../config.js');
 
 let drinks = [];
+let favDrinks = [];
 id = 0;
 
 const getDrinks = (req, res, next) => {
@@ -9,11 +10,15 @@ const getDrinks = (req, res, next) => {
     .then(response => {
       drinks = response.data;
       res.json(drinks); 
-      console.log(drinks, "laksdjfasjdf" , response.data); // give the front end a response of drinks 
     }) .catch(console.log);
 }; 
 
+const likeDrinks = (req, res, next) => {
+   favDrinks.push(req.body.saved)
+}
 
 module.exports = {
-    getDrinks
+    getDrinks,
+    likeDrinks
 };
+

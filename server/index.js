@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-app.get("/api/drinks", drink_controller.getDrinks); // invoking getCharacters- your own API 
+app.get("/api/drinks", drink_controller.getDrinks);  
+app.post("/api/saveDrink", drink_controller.likeDrinks); 
 
 app.listen(port, () => {
  console.log(`Listening on port: ${port}`);

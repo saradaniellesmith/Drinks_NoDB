@@ -1,0 +1,14 @@
+button {
+    border-color: black;
+    width: 65px;
+    height: 25px;
+    font-family: Courier New, Courier, monospace;
+    font-size: .80em;
+
+}
+
+button:hover {
+    transition: 0s;
+    color: white;
+    background-color: black;
+}
