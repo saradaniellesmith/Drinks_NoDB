@@ -12,8 +12,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-
-
 app.get("/api/drinks", drink_controller.getDrinks); // invoking getCharacters- your own API 
 
 app.listen(port, () => {

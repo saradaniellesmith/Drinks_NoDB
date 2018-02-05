@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import Drinks from './../components';
+import Drinks from "./components/drinks/Drinks";
+
 
 class App extends Component {
   constructor(props) {
@@ -21,18 +22,19 @@ class App extends Component {
 
   
   render() { console.log(this.state.drinks)
-    let mappedResults = this.state.drinks.map( (curr, i) => {
-      return <div key={i} > {curr.id} </div>  
-    });
+    //let mappedResults = this.state.drinks.map( (curr, i) => {
+      //return <div key={i} > {curr.name} </div>  
+    //});
+ 
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title"> CREATE A COCKTAIL </h1>
         </header>
         <p className="App-intro">
-        
         </p>
-        {mappedResults}
+        <Drinks drinks={this.state.drinks} />
+        
       </div>
     );
   };
