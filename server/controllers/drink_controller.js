@@ -15,7 +15,12 @@ const getDrinks = (req, res, next) => {
 
 const likeDrinks = (req, res, next) => {
    favDrinks.push(req.body.saved)
+    res.json(favDrinks)
+   console.log(favDrinks);
 }
+
+
+
 
 module.exports = {
     getDrinks,

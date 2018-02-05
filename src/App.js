@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import Drinks from "./components/drinks/Drinks";
 import Savedrink from "./components/Savedrink/Savedrink";
+import Favdrink from "./components/Favdrinks/Favdrinks";
 
 
 class App extends Component {
@@ -10,42 +11,40 @@ class App extends Component {
     super(props);
     this.state = {
       drinks: [],
+      favDrinks: []
     };
+    this.handleClick=this.handleClick.bind(this);
   };
 
   componentDidMount() {
     axios.get("/api/drinks")
     .then(response => {
       this.setState({ drinks: response.data.result })
-      console.log(response.data.result);
+      // console.log(response.data.result);
     })
   }
   
+  handleClick(item) {
+    axios.post("/api/saveDrink", {saved: item})
+    .then(response => {
+      this.setState({ favDrinks: response.data })
+      console.log(response.data);
+    })
+    console.log(item)
+}
   
   render() { console.log(this.state.drinks)
 
-      // let mappedResults = props.drinks.map( (curr, i) => {
-      //     return <div key={i} > 
-      //  <div className="body">
-      //   <h3>  {curr.name} </h3>
-      //   <h4> {curr.descriptionPlain} </h4> 
-      //   < Savedrink currentdrink={curr}/>
-      //   </div>
-      //     </div>  
-      //   });
-
- 
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title"> CREATE A COCKTAIL </h1>
-          {/* <h2 className="Likes-title"> LIKES </h2> */}
         </header>
-        <p className="App-intro">
-        </p>
-        <Drinks drinks={this.state.drinks} />
+        <p className="App-intro"> </p>
+        <Drinks addDrink={this.handleClick} drinks={this.state.drinks} />
+
 <h1>Favorites</h1> 
-     {/* {mappedResults} */}
+     <Favdrink likedDrinks={this.state.favDrinks} />
       </div>
     );
   };

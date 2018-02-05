@@ -10,11 +10,12 @@
   color: white;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   letter-spacing: 3.5px;
   font-size: 1.4em;
 
 }
+
 
 .App-title {
   font-size: 1.5em;
@@ -22,14 +23,7 @@
   display: flex;
   align-items: center;
   align-content: center;
-  margin-left: 310px;
-}
-
-.Likes-title {
-  font-size: .7em;
-  display: flex;
-  align-items: center;
-
+  justify-content: center;
 }
 
 .App-intro {
