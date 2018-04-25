@@ -17,13 +17,17 @@ const likeDrinks = (req, res, next) => {
    favDrinks.push(req.body.saved)
     res.json(favDrinks)
    console.log(favDrinks);
-}
+};
 
-
+const deleteFav = (req, res, next) => {
+    favDrinks.splice(parseInt(req.params.index), 1)
+    res.status(200).json(favDrinks);
+};
 
 
 module.exports = {
     getDrinks,
-    likeDrinks
+    likeDrinks,
+    deleteFav
 };
 

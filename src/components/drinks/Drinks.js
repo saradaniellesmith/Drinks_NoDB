@@ -18,7 +18,7 @@ import Savedrink from "./../Savedrink/Savedrink";
           });
 
         return(
-            <div>
+            <div className="drinks-container">
                 {mappedResults}
             </div>
         )

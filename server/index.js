@@ -14,6 +14,7 @@ app.use(cors());
 
 app.get("/api/drinks", drink_controller.getDrinks);  
 app.post("/api/saveDrink", drink_controller.likeDrinks); 
+app.delete("/api/deletefav", drink_controller.deleteFav);
 
 app.listen(port, () => {
  console.log(`Listening on port: ${port}`);
